@@ -1,0 +1,12 @@
+nombre
+mail
+fecha nacimiento
+pass
+estacion_pref (estacion del año preferida)
+clase_pref (clase de viaje en avion)
+num_viajeros 
+longitud_pref (logitud del viaje preferida)
+selection_pref (seleccion de campos en pantalla por el usuario)
+localizacion_pref (lugar de origen)
+fecha creacion cuenta
+cuenta desactivada (si o no)

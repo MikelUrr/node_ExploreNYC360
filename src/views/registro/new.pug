@@ -1,0 +1,54 @@
+extends ../layout
+block content
+    h1.title Nuevo Usuario
+    if error
+        h2= error
+    form.formulario(action="/registro", method="post")
+        .form-group
+            label(for="nombre") Introduce tu nombre
+            input(type="text", name="nombre", id="nombre", value=user.nombre, class="input-field")
+        .form-group
+            label(for="email") Introduce tu correo electronico
+            input(type="text", name="email", id="email", value=user.mail, class="input-field")
+        .form-group
+            label(for="fechaNacimiento") Fecha de Nacimiento
+            input(type="text", name="fechaNacimiento", id="fechaNacimiento", value=user.fechaNacimiento, class="input-field")
+        .form-group
+            label(for="password") Contraseña
+            div(class="password-field")
+                input(type="password", name="password", id="password", value=user.pass, class="input-field")
+                span(id="togglePassword" class="toggle-password") 👁️
+        .form-group
+            label(for="confirmPassword") Confirmar Contraseña
+            input(type="password", name="confirmPassword", id="confirmPassword", class="input-field")
+        .form-group
+            label(for="estacionPref") ¿En que estación del año te gustaria viajar? (Selecciona una lo puedes cambiar en cualquier momento)
+            select(name="estacionPref", id="estacionPref", class="input-field")
+                option(value="invierno") Invierno
+                option(value="primavera") Primavera
+                option(value="verano") Verano
+                option(value="otonio") Otoño
+        .form-group
+        label(for="clasePref") Clase de Viaje Preferida
+        select(name="clasePref", id="clasePref", class="input-field")
+            option(value="invierno", selected=user.clasePref === "economy") Turista
+            option(value="primavera", selected=user.clasePref === "premium_economy") Turista Superior
+            option(value="verano", selected=user.clasePref === "business") Business
+            option(value="otonio", selected=user.clasePref === "first") Primera Clase
+
+        .form-group
+        label(for="numViajeros") Número de Viajeros
+        input(type="number", name="numViajeros", id="numViajeros", value=user.numViajeros, class="input-field", max="10")
+
+        .form-group
+            label(for="longitudPref") Longitud Preferida
+            input(type="text", name="longitudPref", id="longitudPref", value=user.longitudPref, class="input-field")
+        .form-group
+            label(for="localizacionPref") ¿De donde vienes?
+            input(type="text", name="localizacionPref", id="localizacionPref", value=user.localizacionPref, class="input-field")
+        ul(id="suggestions")
+        .form-group
+            input(type="submit", value="Crear", class="btn-primary")
+            button(class="btn-secondary")
+                a(href='/login') Cancelar
+        script(type="module", src="/js/newuser.js")

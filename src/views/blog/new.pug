@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+    h1.title Nueva Entrada de Blog
+    if error
+        h2= error
+    form.formulario(action="/blog", method="post", enctype="multipart/form-data") 
+        .form-group
+            label(for="titulo") Título*
+            input(type="text", name="titulo", id="titulo", class="input-field")
+        .form-group
+            label(for="contenido") Contenido*
+            textarea(type="text", name="contenido", id="contenido", class="input-field") 
+        .form-group
+            label(for="categoria") Categoría*
+            input(type="text", name="categoria", id="categoria", class="input-field")
+        .form-group
+            label(for="categoriaMes") Mes de la categoría:
+            select(name="categoriaMes", id="categoriaMes")
+                each month in ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Cualquiera"]
+                    option(value=month)= month
+        .form-group
+            label(for="fotoSubir") Foto
+            input(type="file", name="fotoSubir", id="fotoSubir", class="input-field")
+            
+        .form-group
+            label(for="autor") Autor*
+            input(type="text", name="autor", id="autor", class="input-field")
+
+        .form-group
+            input(type="submit", value="Crear", class="btn-primary")
+            a(href='/blog', class="btn-secondary") Cancelar

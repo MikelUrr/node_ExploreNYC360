@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  mysql_biocan:
+    image: mysql:8.0
+    container_name: mysql_NYC
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+      - 3311:3320
+    volumes:
+      - ./db/data:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.db
+
+  mongo_mongo_NYC:
+    image: mongo
+    container_name: mongo_NYC_1
+    ports:
+      - ${DB_PORT}:27017
+    volumes:
+      - ./data:/data/db

@@ -1,0 +1,52 @@
+extends ../layout
+
+block content
+  if error
+    p(class="error", style="color:red;")= error
+
+
+  div(class="users-container")
+    if users
+      a(href='/users/new', class="new-user-button") Nuevo Usuario
+      table(class="users-table")
+        thead
+          tr
+            th Nombre
+            th Correo
+            th Fecha de Nacimiento
+            th Id
+            th Estación Preferida
+            th Clase de Viaje Preferida
+            th Número de Viajeros
+            th Longitud Preferida
+            th Selección Preferida
+            th Localización Preferida
+            th Cuenta Desactivada
+            th rol
+            th Acciones
+            
+        tbody
+          each user in users
+            tr
+              td= user.nombre
+              td= user.email
+              td= user.fechaNacimiento
+              td
+                span(class="password-field", id=`password-${user._id}`, data-password=user._id)= 'Click para mostrar'
+      
+              td= user.estacionPref
+              td= user.clasePref
+              td= user.numViajeros
+              td= user.longitudPref
+              td= user.selectionPref.join(', ')
+              td= user.localizacionPref
+              td= user.cuentaDesactivada
+              td= user.rol
+              td.actionButtons
+                  a(href='/users/'+user._id+'/edit')
+                    img.actionIcon(src='/images/editIcon.png' alt='Editar')
+                  a(href='/users/'+user._id+'/delete')
+                    img.actionIcon(src='/images/deleteIcon.png' alt='Borrar')
+  button(class="btn-atras")
+    a(href='/gestion') Volver atras 
+  script(type="module", src="/js/users.js")

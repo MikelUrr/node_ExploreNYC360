@@ -1,0 +1,33 @@
+extends ../layout
+
+block content 
+    h1.title Editar Entrada del Blog
+    if error 
+        h2= error
+    form.formulario(action=`/blog/${entry._id}`, method="post", enctype='multipart/form-data')
+        .form-group
+            label(for="titulo") Título:
+            input(type="text", name="titulo", id="titulo", value=entry.titulo)
+        .form-group  
+            label(for="contenido") Contenido:
+            textarea(name="contenido", id="contenido")= entry.contenido
+        .form-group
+            label(for="categoria") Categoría:
+            input(type="text", name="categoria", id="categoria", value=entry.categoria)
+        .form-group
+            label(for="categoriaMes") Mes de la categoría:
+            select(name="categoriaMes", id="categoriaMes")
+                each month in ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Cualquiera"]
+                    option(value=month, selected=(entry.categoriaMes === month))= month
+        .form-group
+            label(for="fotoSubir") Foto:
+            input(type="file", name="fotoSubir", id="fotoSubir", class="input-field")
+            if entry.foto != null
+                img(id="blogPhoto", src=entry.foto, alt="Foto de la entrada del blog")
+        .form-group
+            label(for="autor") Autor:
+            input(type="text", name="autor", id="autor", value=entry.autor)
+        .form-group
+            input(type="submit", value="Guardar") 
+            button
+                a(href='/blog') Cancelar

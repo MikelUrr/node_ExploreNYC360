@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+    div.login-container
+        img.logo(src="/images/logo.png", alt="ExploreNYC360 Logo", class="logo")
+        if error
+            h2= error
+        form.formulario(action="/login", method="post")
+            .form-group
+                label(for="email") Correo Electrónico
+                input(type="text", name="email", id="email", class="input-field")
+            .form-group
+                label(for="password") Contraseña
+                input(type="password", name="password", id="password", class="input-field")
+            .form-group
+                input(type="submit", value="Enviar", class="btn-primary")
+                p ¿No tienes una cuenta? 
+                a(href="/registro") ¡Regístrate aquí!

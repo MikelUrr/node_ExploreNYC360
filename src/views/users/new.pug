@@ -1,0 +1,60 @@
+extends ../layout
+block content
+    h1.title Nuevo Usuario
+    if error
+        h2= error
+    form.formulario(action="/users", method="post")
+        .form-group
+            label(for="nombre") Nombre
+            input(type="text", name="nombre", id="nombre", value=user.nombre, class="input-field")
+        .form-group
+            label(for="email") Correo
+            input(type="text", name="email", id="email", value=user.mail, class="input-field")
+        .form-group
+            label(for="fechaNacimiento") Fecha de Nacimiento
+            input(type="text", name="fechaNacimiento", id="fechaNacimiento", value=user.fechaNacimiento, class="input-field")
+        .form-group
+            label(for="password") Contraseña
+            div(class="password-field")
+                input(type="password", name="password", id="password", value=user.pass, class="input-field")
+                span(id="togglePassword" class="toggle-password") 👁️
+        .form-group
+            label(for="confirmPassword") Confirmar Contraseña
+            input(type="password", name="confirmPassword", id="confirmPassword", class="input-field")
+        .form-group
+            label(for="estacionPref") Estación Preferida
+            select(name="estacionPref", id="estacionPref", class="input-field")
+                option(value="invierno") Invierno
+                option(value="primavera") Primavera
+                option(value="verano") Verano
+                option(value="otonio") Otoño
+        .form-group
+            label(for="clasePref") Clase de Viaje Preferida
+            input(type="text", name="clasePref", id="clasePref", value=user.clasePref, class="input-field")
+        .form-group
+            label(for="numViajeros") Número de Viajeros
+            input(type="text", name="numViajeros", id="numViajeros", value=user.numViajeros, class="input-field")
+        .form-group
+            label(for="longitudPref") Longitud Preferida
+            input(type="text", name="longitudPref", id="longitudPref", value=user.longitudPref, class="input-field")
+        .form-group
+            label(for="selectionPref") Selección Preferida
+            input(type="text", name="selectionPref", id="selectionPref", value=user.selectionPref, class="input-field")
+        .form-group
+            label(for="localizacionPref") Localización Preferida
+            input(type="text", name="localizacionPref", id="localizacionPref", value=user.localizacionPref, class="input-field")
+        .form-group
+            label(for="rol") Rol
+                select(name="rol", id="rol", class="input-field")
+                    option(value="admin", selected=user.rol === "admin") Administrador
+                    option(value="editor", selected=user.rol === "editor") Editor
+                    option(value="usuario", selected=user.rol === "usuario") Usuario
+
+        .form-group
+            input(type="hidden", name="cuentaDesactivada", value="false")
+        .form-group
+            input(type="submit", value="Crear", class="btn-primary")
+            button(class="btn-secondary")
+                a(href='/users') Cancelar
+        script(type="module", src="/js/newuser.js")
+

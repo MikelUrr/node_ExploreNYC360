@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1.title ExploreNYC360--Hola #{locals.session.name}
+
+  .card-container
+    .card
+      if locals.session && (locals.session.rol === "admin")
+        a(href="/users")
+          h2.card-title Gestion Usuarios
+        p.card-description Maneja y gestiona usuarios en la plataforma.
+
+    .card
+      if locals.session.user && (locals.session.rol === "admin" || locals.session.rol === "editor")
+        a(href="/blog")
+          h2.card-title Gestion Blog
+        p.card-description Gestiona y publica contenido en el blog.
+    .card
+      a(href="/logout")
+        h2.card-title Logout
+      

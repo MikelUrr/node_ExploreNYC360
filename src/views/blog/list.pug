@@ -1,0 +1,44 @@
+extends ../layout
+
+block content
+  if error
+    p(class="error", style="color:red;")= error
+
+  div(class="users-container")
+    if entries
+      a(href='/blog/new', class="new-user-button") Nueva Entrada
+      table(class="users-table")
+        thead
+          tr
+            th Título
+            th Contenido
+            th Categoría
+            th Mes de Categoria
+            th Fecha de Publicación
+            th Autor
+            th Foto
+            th Acciones
+            
+        tbody
+          each entry in entries
+            tr
+              td= entry.titulo
+              td= entry.contenido.slice(0, 100) + (entry.contenido.length > 100 ? '...' : '')
+              td= entry.categoria
+              td= entry.categoriaMes
+              td= entry.fechaPublicacion
+              td= entry.autor
+              td
+                .blogPhotoMiniContainer
+                  if entry.foto != null
+                    img.blogPhotoMini(src=entry.foto, alt="Foto de la entrada del blog")
+                  else
+                    img.blogPhotoMini(src="/images/blog/nophoto.png", alt="Foto de la entrada del blog")
+              td
+                .actionButtons
+                  a(href=`/blog/${entry._id}/edit`)
+                    img.actionIcon(src='/images/editIcon.png', alt='Editar')
+                  a(href=`/blog/${entry._id}/delete`)
+                    img.actionIcon(src='/images/deleteIcon.png', alt='Borrar')
+  button(class="btn-atras")
+    a(href='/gestion') Volver atras 
