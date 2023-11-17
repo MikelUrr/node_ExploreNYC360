@@ -42,7 +42,7 @@ const subirFile = async (req, res) => {
 
   // Configuración para la API de Tesseract
   const tesseractApiUrl = 'https://api.ocr.space/parse/image';
-  const apiKey = 'K86773065388957';
+  const apiKey =  process.env.FOTO_APIKEY;
 
   // Parámetros de la solicitud a la API de Tesseract
   const params = new URLSearchParams();

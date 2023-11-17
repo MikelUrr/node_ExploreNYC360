@@ -15,11 +15,11 @@ block content
             input(type="text", name="fechaNacimiento", id="fechaNacimiento", value=user.fechaNacimiento, class="input-field")
         .form-group
             label(for="password") Contraseña
-            input(type="password", name="password", id="password", value=user.password , class="input-field")
+            input(type="password", name="password", id="password", class="input-field")
             if user.password
                 .form-group
                     label(for="confirmPassword") Confirmar Contraseña
-                    input(type="password", name="confirmPassword", id="confirmPassword", value=user.password, class="input-field")
+                    input(type="password", name="confirmPassword", id="confirmPassword",  class="input-field")
         .form-group
             label(for="estacionPref") Estación Preferida
             select(name="estacionPref", id="estacionPref", class="input-field")

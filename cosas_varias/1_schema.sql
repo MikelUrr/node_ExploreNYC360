@@ -31,6 +31,7 @@ CREATE TABLE tbairport (
     latitude DECIMAL(9,6),
     FOREIGN KEY (cityid) REFERENCES tbcity(cityid),
     FOREIGN KEY (countryid) REFERENCES tbcountry(countryid)
+    INDEX idx_iata (iata) 
 );
 
 -- Crear la tabla tbflight

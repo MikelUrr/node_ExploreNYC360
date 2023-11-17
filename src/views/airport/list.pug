@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  if error
+    p(class="error", style="color:red;")= error
+
+
+  div(class="users-container")
+    if users
+      a(href='/airport/new', class="new-user-button") Nueva Busqueda

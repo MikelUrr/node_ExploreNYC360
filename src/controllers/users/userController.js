@@ -78,7 +78,12 @@ const createUser = async (nombre, email, fechaNacimiento, password, estacionPref
         user.nombre = nombre;
         user.email = email;
         user.fechaNacimiento = fechaNacimiento;
-        user.password = password;
+        if(password!==""){
+            user.password = password;
+        }else{
+            user.password = user.password;
+        }
+        
         user.estacionPref = estacionPref;
         user.clasePref = clasePref;
         user.numViajeros = numViajeros;

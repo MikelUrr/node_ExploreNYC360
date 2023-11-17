@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import session from "express-session";
 import cors from 'cors';
 
+const PORT = 3009;
+
 // Importa el módulo de enrutador definido en "router.js".
 import router from "./routes/router.js";
 
@@ -43,5 +45,5 @@ app.use(cors());
 app.use("/",router);
 
 // Inicia el servidor en el puerto 3009 y muestra un mensaje en la consola
-app.listen(3009, () => console.log("Servidor web en marcha en puerto 3009."));
+app.listen(PORT, () => console.log("Servidor web en marcha en puerto ${PORT}."));
 

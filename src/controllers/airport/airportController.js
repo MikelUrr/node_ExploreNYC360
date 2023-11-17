@@ -1,34 +1,36 @@
 import fs from 'fs/promises';
+import airportModel from "../../models/airportModel.js"
+import BusquedaModel from '../../models/busquedasModel.js';
 
 
-const apiAirport = async (req, res) => {
 
+
+
+const createairport = async (userId,resultados) => {
     try {
-        // Lee el contenido del archivo JSON
-        const rutaArchivo = 'public/files/data.json';
-        const data = await fs.readFile(rutaArchivo, 'utf8');
+        const newSearch = new SearchModel({
+            user_id: userId,// me he quedado aqui
+            fechaCreacionBusqueda: email,
+            search_id: fechaNacimiento,
+            data: password,
+            currency: estacionPref,
+            fx_rate: clasePref,
+            
+        });
 
-
-        // Parsea el contenido JSON
-        const contenidoJson = JSON.parse(data);
-
-        // Envía el contenido JSON como respuesta
-        res.json(contenidoJson);
+        const savedsearch = await newSearch.save();
+        
+        return [null, savedUser];
     } catch (error) {
-        console.error('Error al leer el archivo:', error);
-        res.status(500).json({ error: 'Error interno del servidor' });
+        console.error(error);
+        return [error.message, null];
     }
-
-
-
-}
-
+};
 
 
 
 
-
-// Lee el archivo JSON
+/* // Lee el archivo JSON
 const aeropuertosList = async () => {
     try {
         // Ruta al archivo JSON
@@ -42,9 +44,9 @@ const aeropuertosList = async () => {
         console.error('Error al leer el archivo:', error);
         throw error;
     }
-};
+}; */
 
-const aeropuertos = await aeropuertosList()
+//const aeropuertos = await getAllUsers()
 
 // Calcula la distancia entre dos puntos geográficos
 function calcularDistancia(lat1, lon1, lat2, lon2) {
@@ -103,6 +105,6 @@ function buscarAeropuertosCercanosPorNombre(airport, distanciaLimite, aeropuerto
 
 
 
-export default { apiAirport,
-    buscarAeropuertosCercanosPorNombre, aeropuertosList };
+export default {
+    buscarAeropuertosCercanosPorNombre };
 

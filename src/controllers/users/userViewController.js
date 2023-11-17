@@ -32,16 +32,26 @@ const updateForm = async (req, res) => {
 
 const update = async (req, res) => {
     const id = req.params.id;
-    const { nombre, email, fechaNacimiento, password,  confirmPassword,estacionPref, clasePref, numViajeros, longitudPref, selectionPref, localizacionPref, cuentaDesactivada,rol } = req.body;
+    const { nombre, email, fechaNacimiento, password, confirmPassword, estacionPref, clasePref, numViajeros, longitudPref, selectionPref, localizacionPref, cuentaDesactivada, rol } = req.body;
 
     try {
+        console.log("password", typeof password, password);
+        console.log("confirmPassword", typeof confirmPassword, confirmPassword);
+
         if (password && password !== confirmPassword) {
             const errorMessage = "La contraseña y la confirmación no coinciden.";
-            
-            return res.redirect(`/users/${id}/edit?error=${errorMessage}`);
+            return res.redirect(`/users/${id}/edit?error=${encodeURIComponent(errorMessage)}`);
         }
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const [error, user] = await userController.updateUser(id, nombre, email, fechaNacimiento, hashedPassword, estacionPref, clasePref, numViajeros, longitudPref, selectionPref, localizacionPref, cuentaDesactivada,rol);
+
+        let error;
+        let user;
+
+        if (password === "" || confirmPassword === "") {
+            [error, user] = await userController.updateUser(id, nombre, email, fechaNacimiento, password, estacionPref, clasePref, numViajeros, longitudPref, selectionPref, localizacionPref, cuentaDesactivada, rol);
+        } else {
+            const hashedPassword = await bcrypt.hash(password, 10);
+            [error, user] = await userController.updateUser(id, nombre, email, fechaNacimiento, hashedPassword, estacionPref, clasePref, numViajeros, longitudPref, selectionPref, localizacionPref, cuentaDesactivada, rol);
+        }
 
         if (error) {
             const uriError = encodeURIComponent(error);

@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+    h1.title Búsqueda de Vuelo
+    if error
+        h2= error
+    form.formulario(action="/airport", method="post")
+        .form-group
+            label(for="fly_from") Ciudad de salida
+            input(type="text", name="fly_from", id="fly_from", value=busqueda.fly_from, class="input-field")
+            ul(id="suggestions")
+        .form-group
+            label(for="date_from") Fecha de salida
+            input(type="date", name="date_from", id="date_from", value=busqueda.date_from, class="input-field")
+        .form-group
+            label(for="return_from") Fecha de regreso
+            input(type="date", name="return_from", id="return_from", value=busqueda.return_from, class="input-field")
+        .form-groupdate_to
+            label(for="adults") Número de adultos
+            select(name="adults", id="adults", class="input-field")
+                each num in [1, 2, 3, 4, 5, 6, 7, 8, 9]
+                    option(value=num, selected=num===busqueda.adults) #{num}
+
+        .form-group
+            input(type="submit", value="Buscar Vuelos", class="btn-primary")
+            button(class="btn-secondary")
+                a(href='/') Cancelar
+        script(type="module", src="/js/newFlight.js")

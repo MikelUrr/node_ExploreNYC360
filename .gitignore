@@ -3,6 +3,8 @@ codigobasura/
 
 #datos mysql
 db/data/
+#datos mongo
+data/
 
 # Logs
 logs

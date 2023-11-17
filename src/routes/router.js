@@ -7,6 +7,7 @@ import registroRouter from "./registroRouter.js"
 import fotoRouter from "./fotoRouter.js"
 import airportRouter from "./airportRouter.js"
 import homeRouter from "./homeRouter.js"
+import apiRouter from "./apiRouter.js"
 
 // aqui metor los import a los routers
 
@@ -20,19 +21,20 @@ A partir de aqui meter las rutas:
 
 router.use("/candidates",candidatesRouter);
  */
-
+router.use("/",apiRouter);
 router.use("/users",userRouter);
 router.use("/blog",blogEntryRouter);
 router.use("/gestion",gestionRouter);
 router.use("/registro",registroRouter);
 router.use("/foto",fotoRouter);
 router.use("/home",homeRouter);
+router.use("/airport",airportRouter)
 
 
 
   
 
-router.use("/",airportRouter);
+
 
 
 
