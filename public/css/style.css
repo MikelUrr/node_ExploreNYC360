@@ -596,3 +596,10 @@ h1.title {
   text-align: center;
   margin-top: 20px;
 }
+
+
+.solicitud-activa {
+  background-color: #ffc107; 
+  color: #212529; 
+  font-weight: bold; 
+}

@@ -51,6 +51,7 @@ const createUser = async (nombre, email, fechaNacimiento, password, estacionPref
 
 
   const updateUser = async (id, nombre, email, fechaNacimiento, password, estacionPref, categoria, cuentaDesactivada,rol) => {
+
     if (id === undefined) {
         const error = "Tienes que especificar un ID válido";
         return [error, null];
@@ -58,7 +59,7 @@ const createUser = async (nombre, email, fechaNacimiento, password, estacionPref
 
     try {
         const user = await UserModel.findById(id);
-
+        
         if (!user) {
             const error = "No se ha encontrado un usuario con el ID proporcionado.";
             return [error, null];
@@ -82,7 +83,11 @@ const createUser = async (nombre, email, fechaNacimiento, password, estacionPref
         
         user.estacionPref = estacionPref;
         user.categoria = categoria;
-        user.cuentaDesactivada = cuentaDesactivada;
+        
+        if (cuentaDesactivada==="false") {
+            user.solicitudReactivacion = false;
+            user.cuentaDesactivada = cuentaDesactivada;
+        }
         user.rol=rol;
 
         await user.save();

@@ -37,6 +37,10 @@ const userSchema = new mongoose.Schema({
     type: String, 
     default: "usuario",
   },
+  solicitudReactivacion: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const UserModel = mongoose.model("User", userSchema);

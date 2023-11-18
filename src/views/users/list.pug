@@ -18,6 +18,7 @@ block content
             th Estación Preferida
             th Categorias
             th Cuenta desactivada
+            th solicitud de reactivacion
             th rol
             th Acciones
             
@@ -33,6 +34,7 @@ block content
               td= user.estacionPref
               td= user.categoria
               td= user.cuentaDesactivada
+               td(class=user.solicitudReactivacion ? 'solicitud-activa' : '')= user.solicitudReactivacion
               td= user.rol
               td.actionButtons
                   a(href='/users/'+user._id+'/edit')
