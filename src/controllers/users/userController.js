@@ -6,6 +6,8 @@ import airportController from "../airport/airportController.js"
 const getAllUsers = async () =>{
     try {
         const users= await UserModel.find({});
+        users.sort((a, b) => (a.solicitudReactivacion === true && b.solicitudReactivacion === false) ? -1 : 1);
+
 
         return [null, users];
     } catch (error) {
