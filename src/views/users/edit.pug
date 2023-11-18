@@ -30,16 +30,16 @@ block content
         .form-group
             label(for="categorias") Categorías Favoritas
                 div
-                    input(type="checkbox", name="categoria", value="atracciones") 
+                    input(type="checkbox", name="categoria", value="atracciones", checked=user.categoria.includes("atracciones")) 
                     | Atracciones Turísticas
                 div
-                    input(type="checkbox", name="categoria", value="barrios") 
+                    input(type="checkbox", name="categoria", value="barrios", checked=user.categoria.includes("barrios")) 
                     | Barrios de Nueva York
                 div
-                    input(type="checkbox", name="categoria", value="gastronomia") 
+                    input(type="checkbox", name="categoria", value="gastronomia", checked=user.categoria.includes("gastronomia")) 
                     | Gastronomía Local
                 div
-                    input(type="checkbox", name="categoria", value="eventos") 
+                    input(type="checkbox", name="categoria", value="eventos",checked=user.categoria.includes("eventos")) 
                     | Eventos Especiales       
         .form-group
             label(for="cuentaDesactivada") Cuenta Desactivada
