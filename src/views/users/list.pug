@@ -16,12 +16,8 @@ block content
             th Fecha de Nacimiento
             th Id
             th Estación Preferida
-            th Clase de Viaje Preferida
-            th Número de Viajeros
-            th Longitud Preferida
-            th Selección Preferida
-            th Localización Preferida
-            th Cuenta Desactivada
+            th Categorias
+            th Cuenta desactivada
             th rol
             th Acciones
             
@@ -35,11 +31,7 @@ block content
                 span(class="password-field", id=`password-${user._id}`, data-password=user._id)= 'Click para mostrar'
       
               td= user.estacionPref
-              td= user.clasePref
-              td= user.numViajeros
-              td= user.longitudPref
-              td= user.selectionPref.join(', ')
-              td= user.localizacionPref
+              td= user.categoria
               td= user.cuentaDesactivada
               td= user.rol
               td.actionButtons

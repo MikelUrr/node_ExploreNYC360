@@ -12,13 +12,26 @@ block content
             label(for="contenido") Contenido:
             textarea(name="contenido", id="contenido")= entry.contenido
         .form-group
-            label(for="categoria") Categoría:
-            input(type="text", name="categoria", id="categoria", value=entry.categoria)
+            label(for="categorias") Categoria*
+                div
+                    input(type="checkbox", name="categoria", value="atracciones") 
+                    | Atracciones Turísticas
+                div
+                    input(type="checkbox", name="categoria", value="barrios") 
+                    | Barrios de Nueva York
+                div
+                    input(type="checkbox", name="categoria", value="gastronomia") 
+                    | Gastronomía Local
+                div
+                    input(type="checkbox", name="categoria", value="eventos") 
+                    | Eventos Especiales
         .form-group
-            label(for="categoriaMes") Mes de la categoría:
-            select(name="categoriaMes", id="categoriaMes")
-                each month in ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Cualquiera"]
-                    option(value=month, selected=(entry.categoriaMes === month))= month
+            label(for="categoriaMes") ¿En que estación del año te gustaria viajar? (Selecciona una lo puedes cambiar en cualquier momento)
+            select(name="categoriaMes", id="categoriaMes", class="input-field")
+                option(value="invierno") Invierno
+                option(value="primavera") Primavera
+                option(value="verano") Verano
+                option(value="otonio") Otoño
         .form-group
             label(for="fotoSubir") Foto:
             input(type="file", name="fotoSubir", id="fotoSubir", class="input-field")

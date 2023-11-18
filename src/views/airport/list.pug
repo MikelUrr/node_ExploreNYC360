@@ -7,33 +7,34 @@ block content
   div(class="search-container")
     if search
       a(href='/airport/new', class="new-search-button") Nueva Búsqueda
+      a(href='/home', class="new-search-button") Volver atras 
+  if search != null
+    each item in search
+      .card
+        .flight-info
+          h2(class="flight-details-header") Detalles del vuelo - Ida
+          p(class="flight-route") Desde: #{item.route[0].cityFrom} (#{item.route[0].flyFrom}) a #{item.cityTo} (#{item.flyTo})
+          p Duración: #{item.duration_departure/3600} horas
 
-  each item in search
-    .card
-      .flight-info
-        h2(class="flight-details-header") Detalles del vuelo - Ida
-        p(class="flight-route") Desde: #{item.route[0].cityFrom} (#{item.route[0].flyFrom}) a #{item.cityTo} (#{item.flyTo})
-        p Duración: #{item.duration_departure/3600} horas
-
-        each segment in item.route
-          p
-            | #{segment.cityFrom} (#{segment.flyFrom}) → #{segment.cityTo} (#{segment.flyTo})
-            if segment.cityTo === item.cityTo
-              
-              - break
-
-        h2(class="flight-details-header") Detalles del vuelo - Vuelta
-        p(class="flight-route") Desde: #{item.cityTo} (#{item.flyTo}) a #{item.cityFrom} (#{item.flyFrom})
-        p Duration: #{item.duration_return/3600} horas
-        - var conect = ''
-        each segment in item.route
-          if segment.cityFrom === item.cityTo || segment.cityFrom=== conect
+          each segment in item.route
             p
               | #{segment.cityFrom} (#{segment.flyFrom}) → #{segment.cityTo} (#{segment.flyTo})
-              - conect = segment.cityTo 
-              if segment.cityTo === item.cityFrom
+              if segment.cityTo === item.cityTo
                 
-        p(class="price") Precio: #{item.price}€
-      .booking-link
-        a(href=item.deep_link, target='_blank', class="link") Reserva ahora
+                - break
+
+          h2(class="flight-details-header") Detalles del vuelo - Vuelta
+          p(class="flight-route") Desde: #{item.cityTo} (#{item.flyTo}) a #{item.cityFrom} (#{item.flyFrom})
+          p Duration: #{item.duration_return/3600} horas
+          - var conect = ''
+          each segment in item.route
+            if segment.cityFrom === item.cityTo || segment.cityFrom=== conect
+              p
+                | #{segment.cityFrom} (#{segment.flyFrom}) → #{segment.cityTo} (#{segment.flyTo})
+                - conect = segment.cityTo 
+                if segment.cityTo === item.cityFrom
+                  
+          p(class="price") Precio: #{item.price}€
+        .booking-link
+          a(href=item.deep_link, target='_blank', class="link") Reserva ahora
 

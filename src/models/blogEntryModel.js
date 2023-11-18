@@ -14,7 +14,7 @@ const blogEntrySchema = new mongoose.Schema({
       required: true
     },
     categoria: {
-      type: String,
+      type: [String],
       required: true
     },
     categoriaMes: {

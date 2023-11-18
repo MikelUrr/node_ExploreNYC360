@@ -32,7 +32,7 @@ const updateForm = async (req, res) => {
 
 const update = async (req, res) => {
     const id = req.params.id;
-    const { nombre, email, fechaNacimiento, password, confirmPassword, estacionPref, clasePref, numViajeros, longitudPref, selectionPref, localizacionPref, cuentaDesactivada, rol } = req.body;
+    const { nombre, email, fechaNacimiento, password, confirmPassword, estacionPref, categoria, cuentaDesactivada, rol } = req.body;
 
     try {
         console.log("password", typeof password, password);
@@ -47,10 +47,10 @@ const update = async (req, res) => {
         let user;
 
         if (password === "" || confirmPassword === "") {
-            [error, user] = await userController.updateUser(id, nombre, email, fechaNacimiento, password, estacionPref, clasePref, numViajeros, longitudPref, selectionPref, localizacionPref, cuentaDesactivada, rol);
+            [error, user] = await userController.updateUser(id, nombre, email, fechaNacimiento, password, estacionPref, categoria, cuentaDesactivada, rol);
         } else {
             const hashedPassword = await bcrypt.hash(password, 10);
-            [error, user] = await userController.updateUser(id, nombre, email, fechaNacimiento, hashedPassword, estacionPref, clasePref, numViajeros, longitudPref, selectionPref, localizacionPref, cuentaDesactivada, rol);
+            [error, user] = await userController.updateUser(id, nombre, email, fechaNacimiento, hashedPassword, estacionPref, categoria, cuentaDesactivada, rol);
         }
 
         if (error) {
@@ -86,11 +86,7 @@ const createForm = async (req, res) => {
         fechaNacimiento: "",
         password: "",
         estacionPref: "",
-        clasePref: "",
-        numViajeros: "",
-        longitudPref: "",
-        selectionPref: [],
-        localizacionPref: "",
+        categoria:"",
         cuentaDesactivada: false,
         rol:"",
     };
@@ -99,15 +95,15 @@ const createForm = async (req, res) => {
 };
 
 const create = async (req, res) => {
-
-    const { nombre, email, fechaNacimiento, password,confirmPassword, estacionPref, clasePref, numViajeros, longitudPref, selectionPref, localizacionPref, cuentaDesactivada,rol } = req.body;
+console.log(req.body)
+    const { nombre, email, fechaNacimiento, password,confirmPassword, estacionPref, categoria, cuentaDesactivada,rol } = req.body;
     if (password && password !== confirmPassword) {
         const errorMessage = "La contraseña y la confirmación no coinciden.";
         
         return res.redirect(`/users/edit?error=${errorMessage}`);
     }
     const hashedPassword = await bcrypt.hash(password, 10);
-    const [error, user] = await userController.createUser(nombre, email, fechaNacimiento, hashedPassword, estacionPref, clasePref, numViajeros, longitudPref, selectionPref, localizacionPref, cuentaDesactivada,rol);
+    const [error, user] = await userController.createUser(nombre, email, fechaNacimiento, hashedPassword, estacionPref,categoria, cuentaDesactivada,rol);
 
     if (error) {
         const uriError = encodeURIComponent(error);

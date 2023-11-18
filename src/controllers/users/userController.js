@@ -26,7 +26,7 @@ const getUsersById = async (id)=> {
     
 }
 
-const createUser = async (nombre, email, fechaNacimiento, password, estacionPref, clasePref, numViajeros, longitudPref, selectionPref, localizacionPref, cuentaDesactivada,rol) => {
+const createUser = async (nombre, email, fechaNacimiento, password, estacionPref, categoria, cuentaDesactivada,rol) => {
     try {
         const newUser = new UserModel({
             nombre: nombre,
@@ -34,11 +34,7 @@ const createUser = async (nombre, email, fechaNacimiento, password, estacionPref
             fechaNacimiento: fechaNacimiento,
             password: password,
             estacionPref: estacionPref,
-            clasePref: clasePref,
-            numViajeros: numViajeros,
-            longitudPref: longitudPref,
-            selectionPref: selectionPref,
-            localizacionPref: localizacionPref,
+            categoria: categoria,
             cuentaDesactivada: cuentaDesactivada,
             rol:rol,
         });
@@ -54,7 +50,7 @@ const createUser = async (nombre, email, fechaNacimiento, password, estacionPref
 
 
 
-  const updateUser = async (id, nombre, email, fechaNacimiento, password, estacionPref, clasePref, numViajeros, longitudPref, selectionPref, localizacionPref, cuentaDesactivada,rol) => {
+  const updateUser = async (id, nombre, email, fechaNacimiento, password, estacionPref, categoria, cuentaDesactivada,rol) => {
     if (id === undefined) {
         const error = "Tienes que especificar un ID válido";
         return [error, null];
@@ -85,11 +81,7 @@ const createUser = async (nombre, email, fechaNacimiento, password, estacionPref
         }
         
         user.estacionPref = estacionPref;
-        user.clasePref = clasePref;
-        user.numViajeros = numViajeros;
-        user.longitudPref = longitudPref;
-        user.selectionPref = selectionPref;
-        user.localizacionPref = localizacionPref;
+        user.categoria = categoria;
         user.cuentaDesactivada = cuentaDesactivada;
         user.rol=rol;
 

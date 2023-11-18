@@ -29,20 +29,20 @@ block content
                 option(value="verano") Verano
                 option(value="otonio") Otoño
         .form-group
-            label(for="clasePref") Clase de Viaje Preferida
-            input(type="text", name="clasePref", id="clasePref", value=user.clasePref, class="input-field")
-        .form-group
-            label(for="numViajeros") Número de Viajeros
-            input(type="text", name="numViajeros", id="numViajeros", value=user.numViajeros, class="input-field")
-        .form-group
-            label(for="longitudPref") Longitud Preferida
-            input(type="text", name="longitudPref", id="longitudPref", value=user.longitudPref, class="input-field")
-        .form-group
-            label(for="selectionPref") Selección Preferida
-            input(type="text", name="selectionPref", id="selectionPref", value=user.selectionPref, class="input-field")
-        .form-group
-            label(for="localizacionPref") Localización Preferida
-            input(type="text", name="localizacionPref", id="localizacionPref", value=user.localizacionPref, class="input-field")
+            label(for="categorias") Categorías Favoritas
+                div
+                    input(type="checkbox", name="categoria", value="atracciones") 
+                    | Atracciones Turísticas
+                div
+                    input(type="checkbox", name="categoria", value="barrios") 
+                    | Barrios de Nueva York
+                div
+                    input(type="checkbox", name="categoria", value="gastronomia") 
+                    | Gastronomía Local
+                div
+                    input(type="checkbox", name="categoria", value="eventos") 
+                    | Eventos Especiales
+        
         .form-group
             label(for="rol") Rol
                 select(name="rol", id="rol", class="input-field")

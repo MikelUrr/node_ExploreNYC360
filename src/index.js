@@ -45,5 +45,5 @@ app.use(cors());
 app.use("/",router);
 
 // Inicia el servidor en el puerto 3009 y muestra un mensaje en la consola
-app.listen(PORT, () => console.log("Servidor web en marcha en puerto ${PORT}."));
+app.listen(PORT, () => console.log("Servidor web en marcha en puerto 3009."));
 

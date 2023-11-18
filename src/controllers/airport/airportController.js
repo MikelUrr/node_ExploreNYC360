@@ -73,7 +73,7 @@ const getSearch = async (userId) => {
             }
             return [null, dataToInsert];
         }
-       
+        return [null, []]
 
     } catch (error) {
         console.error(error);
