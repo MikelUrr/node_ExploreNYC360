@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  h1(class="profile-title") Mi Perfil
+
+  .profile-info
+    .profile-field
+      label(class="field-label") Nombre:
+      p(class="field-value") #{user.nombre}
+    .profile-field
+      label(class="field-label") Correo Electrónico:
+      p(class="field-value") #{user.email}
+    .profile-field
+      label(class="field-label") Fecha de Nacimiento:
+      p(class="field-value") #{user.fechaNacimiento.toLocaleDateString()}
+    .profile-field
+      label(class="field-label") Estación Preferida:
+      p(class="field-value") #{user.estacionPref || 'No especificada'}
+    .profile-field
+      label(class="field-label") Categoría:
+      p(class="field-value") #{user.categoria ? user.categoria.join(', ') : 'No especificada'}
+    a(href='/myprofile/edit', class="new-search-button") Editar perfil
+    a(href='/myprofile/borrar', class="new-search-button") Borrar perfil
+    a(href='/home', class="new-search-button") Volver
+
+
+

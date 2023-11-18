@@ -9,6 +9,7 @@ import airportRouter from "./airportRouter.js"
 import homeRouter from "./homeRouter.js"
 import apiRouter from "./apiRouter.js"
 import blogViewRouter from "./blogViewRouter.js"
+import myprofileRouter from "./myprofileRouter.js"
 
 // aqui metor los import a los routers
 
@@ -31,6 +32,7 @@ router.use("/foto",fotoRouter);
 router.use("/home",homeRouter);
 router.use("/airport",airportRouter)
 router.use("/guia",blogViewRouter)
+router.use("/myprofile",myprofileRouter)
 
 
 

@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+  h1(class="profile-title") Borrado de usuario
+
+  p ¿Estás seguro de que quieres eliminar la cuenta?
+
+  .cancel-button-container
+    a(href='/myprofile/' class="cancel-button") No
+
+  .confirmation-buttons
+    form(action="/myprofile/borrar" method="POST")
+      button(type="submit" class="confirm-button") Sí

@@ -411,6 +411,7 @@ h1.title {
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
+  margin-right: 10px;
 }
 
 .card {
@@ -534,4 +535,64 @@ h1.title {
   .blog-month {
     font-size: 14px;
   }
+}
+/*estilosmyprofile */
+
+.profile-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.profile-info {
+  width: 70%;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.profile-field {
+  margin-bottom: 15px;
+}
+
+.field-label {
+  font-weight: bold;
+  display: block;
+}
+
+.field-value {
+  margin-top: 5px;
+}
+
+
+.confirmation-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.confirm-button,
+.cancel-button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.confirm-button {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.cancel-button {
+  background-color: #007bff;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.cancel-button-container {
+  text-align: center;
+  margin-top: 20px;
 }

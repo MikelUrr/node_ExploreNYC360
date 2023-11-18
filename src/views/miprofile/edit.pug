@@ -1,0 +1,49 @@
+extends ../layout
+block content
+    h1.title Editar Usuario
+    if error
+        h2= error
+    form.formulario(action=`/myprofile`, method="post")
+        .form-group
+            label(for="nombre") Nombre
+            input(type="text", name="nombre", id="nombre", value=user.nombre, class="input-field")
+        .form-group
+            label(for="email") Correo
+            input(type="text", name="email", id="email", value=user.email, class="input-field")
+        .form-group
+            label(for="fechaNacimiento") Fecha de Nacimiento
+            input(type="text", name="fechaNacimiento", id="fechaNacimiento", value=user.fechaNacimiento, class="input-field")
+        .form-group
+            label(for="password") Contraseña
+            input(type="password", name="password", id="password", class="input-field")
+            if user.password
+                .form-group
+                    label(for="confirmPassword") Confirmar Contraseña
+                    input(type="password", name="confirmPassword", id="confirmPassword",  class="input-field")
+        .form-group
+            label(for="estacionPref") Estación Preferida
+            select(name="estacionPref", id="estacionPref", class="input-field")
+                option(value="invierno", selected=user.estacionPref === "invierno") Invierno
+                option(value="primavera", selected=user.estacionPref === "primavera") Primavera
+                option(value="verano", selected=user.estacionPref === "verano") Verano
+                option(value="otonio", selected=user.estacionPref === "otonio") Otoño
+        .form-group
+            label(for="categorias") Categorías Favoritas
+                div
+                    input(type="checkbox", name="categoria", value="atracciones") 
+                    | Atracciones Turísticas
+                div
+                    input(type="checkbox", name="categoria", value="barrios") 
+                    | Barrios de Nueva York
+                div
+                    input(type="checkbox", name="categoria", value="gastronomia") 
+                    | Gastronomía Local
+                div
+                    input(type="checkbox", name="categoria", value="eventos") 
+                    | Eventos Especiales       
+
+
+        .form-group
+            input(type="submit", value="Guardar", class="btn-primary")
+            button(class="btn-secondary")
+                a(href='/miprofile') Cancelar
