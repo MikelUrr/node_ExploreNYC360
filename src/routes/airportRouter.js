@@ -10,5 +10,7 @@ router.post("/", isAuthenticated, (req, res) => {
     airportViewController.create(req, res);
 });
 
-
+router.get("/", isAuthenticated, (req, res) => {
+        airportViewController.getViewSearch(req, res);
+});
 export default router;

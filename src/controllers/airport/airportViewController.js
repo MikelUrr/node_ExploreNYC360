@@ -1,18 +1,21 @@
 import airportController from "./airportController.js"
 import TequilaApi from "./TequilaApi.js"
 
-const getAllAirportView = async (req, res) => {
+const getViewSearch = async (req, res) => {
+    const id = req.session.user;
+    console.log("IDIIIIIIIIIIIIIIIIIII",id)
     const errorMessage = req.query.error;
-    const [error, users] = await airportController.getAllAirport();
-    res.render("airport/list", { error: error || errorMessage, users, session: req.session });
+    const [error, search] = await airportController.getSearch(id);
+    console.log("resultado de la busqueda",search)
+    res.render("airport/list", { error: error || errorMessage, search, session: req.session });
 };
 
-const getAirportByIdView = async (req, res) => {
+/* const getAirportByIdView = async (req, res) => {
     const id = req.params.id;
     const [error, user] = await airportController.getAirportById(id);
     res.render("airport/list", { error, user, session: req.session });
 };
-
+ */
 
 
 
@@ -77,14 +80,6 @@ const create = async (req, res) => {
         const return_from_fortmat = `${dia1}/${mes1}/${ano1}`
 
 
-        console.log("ver fecha", date_from)
-
-        const formData = {
-            fly_from,
-            date_from_fortmat,
-            return_from,
-            adults,
-        };
         const params = {
             fly_from: fly_from,
             fly_to: 'NYC',
@@ -108,8 +103,8 @@ const create = async (req, res) => {
         };
 
         const resultados = await TequilaApi.searchFlights(params)
-        console.log(resultados)
-        const [error, user] = await airportController.createairport(userId,resultados);
+        
+        const [error, user] = await airportController.createNewSearch(userId,resultados);
         
                 if (error) {
                     const uriError = encodeURIComponent(error);
@@ -128,8 +123,7 @@ const create = async (req, res) => {
 
 
 export default {
-    getAllAirportView,
-    getAirportByIdView,
+    getViewSearch,
     create,
     createForm,
 };

@@ -34,7 +34,7 @@ async function searchFlights(params) {
         });
 
         if (response.status === 200) {
-            console.log("HOLIIIIIIIII",response.data)
+           
             return response.data;
         } else {
             console.error('Error en la respuesta de la API:', response.statusText);
@@ -64,7 +64,5 @@ async function searchFlights(params) {
         }
     }
 }
-
-//console.log("Hola", await searchFlights(params))
 
 export default { searchFlights };

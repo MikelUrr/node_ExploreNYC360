@@ -26,10 +26,7 @@ const busquedaSchema = new mongoose.Schema({
     fx_rate: {
         type: Number, 
         required: true,
-    },search_number: {
-        type: Number, 
-        required: true,
-    },
+    }
 });
 
 const BusquedaModel = mongoose.model('Busqueda', busquedaSchema);
