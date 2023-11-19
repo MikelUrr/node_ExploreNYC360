@@ -17,11 +17,7 @@ To get started with **ExploreNYC360**, follow these installation steps:
 
 ```bash
    npm install
-<<<<<<< HEAD
 ```
-=======
-    ```
->>>>>>> eaba00d (readme update)
 
 2. Build and start the Docker containers:
 
@@ -49,11 +45,7 @@ ExploreNYC360 offers a variety of features to make your NYC travel seamless. Cus
 
         
         npm start
-<<<<<<< HEAD
         
-=======
-        ```
->>>>>>> eaba00d (readme update)
 This command launches the ExploreNYC360 application, making it accessible at http://localhost:your-port. Remember to replace "your-port" with the actual port number on which your application will be running.
 
 Internal Management System:
@@ -65,31 +57,19 @@ To build the application:
 
     
     npm run build
-<<<<<<< HEAD
     
-=======
-    ```
->>>>>>> eaba00d (readme update)
 This command compiles the application for production.
 
 To run tests:
 
     
     npm test
-<<<<<<< HEAD
     
-=======
-    ```
->>>>>>> eaba00d (readme update)
 Execute this command to run the automated tests.
 
 Customize your ExploreNYC360 experience and enjoy a seamless journey through the streets of NYC!
 
-<<<<<<< HEAD
 ## Contribution
-=======
-##Contribution
->>>>>>> eaba00d (readme update)
 
 Contributions to ExploreNYC360 are welcome! If you'd like to contribute, follow these steps:
 

@@ -15,8 +15,8 @@ const unsubscriber=async(id)=>{
     try {
         
         const user = await UserModel.findOneAndUpdate(
-            { _id: id }, // Condición de búsqueda
-            { $set: { cuentaDesactivada: true } }, // Actualización del campo específico
+            { _id: id }, 
+            { $set: { cuentaDesactivada: true } },
            
         );
         

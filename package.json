@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage --detectOpenHandles --forceExit"
   },
   "keywords": [],
   "author": "",
@@ -30,5 +30,8 @@
     "tesseract.js-core": "^5.0.0",
     "text-from-image": "^1.1.1",
     "translate": "^2.0.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
