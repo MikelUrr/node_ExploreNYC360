@@ -15,9 +15,9 @@ To get started with **ExploreNYC360**, follow these installation steps:
 
 1. Install project dependencies:
 
-   ```bash
+```bash
    npm install
-    ```
+```
 
 2. Build and start the Docker containers:
 
