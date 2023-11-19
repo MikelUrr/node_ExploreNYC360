@@ -43,7 +43,7 @@ ExploreNYC360 offers a variety of features to make your NYC travel seamless. Cus
 
 ### Start the Application:
 
-        ```bash
+        
         npm start
         
 This command launches the ExploreNYC360 application, making it accessible at http://localhost:your-port. Remember to replace "your-port" with the actual port number on which your application will be running.
