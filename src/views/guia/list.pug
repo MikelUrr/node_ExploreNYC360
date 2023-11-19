@@ -1,16 +1,35 @@
 extends ../layout
 
 block content
-  h1.titleblog  Todas las Entradas del Blog
+  header.main-header
+    div.project-info
+      h1.main-title ExploreNYC360 
+      hr.divider
 
-  each entries in entry
-    .blog-entry
-      h2.blog-title= entries.titulo
-      p.blog-meta 
-        | Publicado el #{entries.fechaPublicacion.toLocaleDateString()} por #{entries.autor}
-      if entries.foto
-        img.blog-image(src=entries.foto, alt=entries.titulo)
-      p.blog-content= entries.contenido
-      p.blog-categories Categorías: #{entries.categoria.join(', ')}
-      p.blog-month Categoría del Mes: #{entries.categoriaMes}
-  a(href='/home', class="new-search-button") Volver atras 
+    nav#nav.main-nav
+      div.nav-links
+        a.link-item(href="/airport") Vuelos
+        a.link-item(href="/foto") Fotos
+        a.link-item(href="/guia") blog
+        a.link-item(href="/myprofile") Mi perfil
+        a.link-item(href="/logout") Logout 
+    button#button-menu.button-menu
+      span
+      span
+      span 
+  main
+    h1.titleblog  Todas las Entradas del Blog
+
+    each entries in entry
+      .blog-entry
+        h2.blog-title= entries.titulo
+        p.blog-meta 
+          | Publicado el #{entries.fechaPublicacion.toLocaleDateString()} por #{entries.autor}
+        if entries.foto
+          img.blog-image(src=entries.foto, alt=entries.titulo)
+          p.blog-content= entries.contenido
+
+        p.blog-content= entries.contenido
+        p.blog-categories Categorías: #{entries.categoria.join(', ')}
+        p.blog-month Categoría del Mes: #{entries.categoriaMes}
+    a(href='/home', class="new-search-button") Volver atras 

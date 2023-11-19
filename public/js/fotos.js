@@ -1,3 +1,21 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const toggleButton = document.getElementById('button-menu');
+  const navWrapper = document.getElementById('nav');
+
+  toggleButton.addEventListener('click', () => {
+    toggleButton.classList.toggle('close');
+    navWrapper.classList.toggle('show');
+  });
+
+  navWrapper.addEventListener('click', (e) => {
+    if (e.target.id === 'nav') {
+      navWrapper.classList.remove('show');
+      toggleButton.classList.remove('close');
+    }
+  });
+});
+
+
 // Variables para almacenar la última vista previa y el último input
 let lastPreview = null;
 let lastInput = null;
@@ -43,7 +61,7 @@ function mostrarVistaPrevia(input) {
 }
 
 
-  // Realiza una solicitud GET a la API
+ /*  // Realiza una solicitud GET a la API
   fetch('http://localhost:3009/datos')
   .then(response => response.json())
   .then(data => {
@@ -53,7 +71,7 @@ function mostrarVistaPrevia(input) {
   })
   .catch(error => console.error('Error al obtener datos:', error));
 
-
+ */
   // POST fech para mostrar fotos: 
 
 
@@ -74,8 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
         const result = await response.json();
         console.log('Contenido de la respuesta POST:', result);
-        textoReconocido.textContent = `Texto reconocido: ${result.recognizedText || ''}`;
-        textoTraducido.textContent = `Texto traducido: ${result.translatedText || ''}`;
+        textoReconocido.textContent = `English: ${result.recognizedText || ''}`;
+        textoTraducido.textContent = `Castellano: ${result.translatedText || ''}`;
   
         resultadoContainer.style.display = 'block';
       } catch (error) {

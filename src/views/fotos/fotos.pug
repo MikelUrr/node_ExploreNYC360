@@ -3,25 +3,26 @@ extends ../layout
 block content
   header.main-header
     div.project-info
-      h1 ExploreNYC360 
+      h1.main-title ExploreNYC360 
       hr.divider
 
     nav#nav.main-nav
       div.nav-links
-        a.link-item(href="/home") Inicio
-        a.link-item(href="#") Link2
-        a.link-item(href="#") Link3
+        a.link-item(href="/airport") Vuelos
+        a.link-item(href="/foto") Fotos
+        a.link-item(href="/guia") blog
+        a.link-item(href="/myprofile") Mi perfil
         a.link-item(href="/logout") Logout 
     button#button-menu.button-menu
       span
       span
       span
 
-  main
-    h3 Bienvenido #{locals.session && locals.session.name}
 
-    h2.section-header Lector de fotos
-    div#contenido-seccion1
+  main
+    .card
+      h2.section-header Lector de fotos
+            
       form.formulario(id="formulario", action="/", method="post", enctype="multipart/form-data")
         .form-group
           label(for="fotoSubir") Introduce una foto para traducir
@@ -30,9 +31,11 @@ block content
         .form-group
           input(type="submit", value="Traducir", class="btn-primary")
 
-      // Mostrar el resultado si está presente
-      #resultado(style="display: none;")
-        p#textoReconocido
-        p#textoTraducido
-
+        // Mostrar el resultado si está presente
+        #resultado(style="display: none;")
+          p#textoReconocido
+          p#textoTraducido
   script(src="/js/fotos.js")
+ 
+  
+

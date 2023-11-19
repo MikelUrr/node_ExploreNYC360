@@ -2,6 +2,11 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: auto;
+  background-image: url('/images/nyc-4854718_1280.jpg');
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+  background-position: center; /* Centra la imagen en el contenedor */
+  background-color: transparent; 
 }
 .users-container {
     text-align: center;
@@ -12,6 +17,7 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    background-color: whitesmoke;
   }
   
   .users-table th,
@@ -48,8 +54,8 @@ body {
   
   }
   .new-user-button {
-    background-color: #ddd;
-    color: black;
+    background-color: #4caf50;
+    color: whitesmoke;
     padding: 10px 20px;
     text-decoration: none;
     margin-top: 20px;
@@ -156,12 +162,12 @@ body {
 
 .btn-primary {
     background-color: #4caf50;
-    color: white;
+    color: black;
 }
 
 .btn-atras {
-    background-color: #ddd;
-    color: white;
+    background-color: #4caf50;
+    color: black;
 }
 
 .btn-secondary {
@@ -172,14 +178,11 @@ body {
 .btn-primary:hover,
 .btn-secondary:hover,
 .btn-atras:hover {
-    background-color: #45a049;
+    background-color: #f2f2f2;
 }
 
 .login-container {
-  background-image: url('/images/nyc-4854718_1280.jpg');
-  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
-  background-position: center; /* Centra la imagen en el contenedor */
-  background-color: transparent; 
+
   font-family: 'Arial', sans-serif; 
   padding: 20px; 
   
@@ -207,16 +210,23 @@ h1.title {
 }
 
 .card {
-  width: 100%; /* Ocupa el 100% del ancho en dispositivos móviles */
-  margin: 20px 0;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  width: calc(100% - 40px);
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   text-decoration: none;
   color: #333;
   transition: box-shadow 0.3s;
-  box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: calc(50% - 40px); /* Cambia el ancho en pantallas más grandes */
+  }
 }
 
 .card:hover {
@@ -407,20 +417,14 @@ h1.title {
   display: inline-block;
   padding: 10px 15px;
   font-size: 16px;
-  background-color: #007bff;
+  background-color: #4caf50;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
   margin-right: 10px;
 }
 
-.card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-  padding: 15px;
-}
+
 
 .flight-info {
   color: #333;
@@ -434,7 +438,7 @@ h1.title {
 
 .price {
   font-size: 20px;
-  color: #007bff;
+  color: #45a049;
   font-weight: bold;
 }
 
@@ -444,7 +448,7 @@ h1.title {
 
 .link {
   text-decoration: none;
-  color: #007bff;
+  color: #45a049;
 }
 
 .link:hover {
@@ -468,6 +472,7 @@ h1.title {
 }
 
 /* Estilos generales blog */
+
 .titleblog {
   color: #333;
   font-size: 28px;
@@ -476,10 +481,14 @@ h1.title {
 }
 
 .blog-entry {
+  background-color: #fff; /* Fondo blanco para cada entrada */
   margin-bottom: 40px;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  max-width: 800px; /* Limita el ancho del contenido para centrarlo */
+  margin: 0 auto; /* Centra el contenido horizontalmente */
+  padding: 20px; /* Añade un espacio alrededor del contenido */
 }
 
 .blog-title {
@@ -499,6 +508,9 @@ h1.title {
   height: auto;
   max-height: 600px;
   margin-bottom: 10px;
+  display: block; /* Para centrar la imagen en dispositivos móviles */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .blog-content {
@@ -507,12 +519,7 @@ h1.title {
   margin-bottom: 15px;
 }
 
-.blog-categories {
-  color: #555;
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
+.blog-categories,
 .blog-month {
   color: #555;
   font-size: 14px;
@@ -602,4 +609,61 @@ h1.title {
   background-color: #ffc107; 
   color: #212529; 
   font-weight: bold; 
+}
+
+
+
+.main-title {
+  color: #45a049;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+
+
+.card h2 {
+  background-color: #45a049;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  margin: 0;
+}
+
+.card p {
+  padding: 20px;
+}
+
+.card a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.card a:hover {
+  background-color: #e9ecef;
+}
+
+@media screen and (max-width: 768px) {
+  .main-title {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+}
+#textoReconocido, #textoTraducido {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+.confirmation-message {
+  font-size: 18px;
+  font-weight: bold;
+  color: #dc3545; 
+  text-align: center;
+  margin-top: 20px;
 }

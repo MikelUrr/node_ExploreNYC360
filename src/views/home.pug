@@ -3,7 +3,7 @@ extends layout
 block content
   header.main-header
     div.project-info
-      h1 ExploreNYC360 
+      h1.main-title ExploreNYC360 
       hr.divider
 
     nav#nav.main-nav
@@ -19,18 +19,20 @@ block content
       span
 
   main
-    h3 Bienvenido #{locals.session && locals.session.name}
+    .card
+      h2 Busqueda de vuelos
+      p Encuentra las mejores ofertas para visitar Nueva york
+      a(href='/airport') Ver más
 
-    section#seccion1(onclick="toggleSection('seccion1')")
-    a(href="/foto")
-          h2.card-title Lector de fotos
-    p.card-description Saca una foto y traduce.
+    .card
+      h2 Foto translator
+      p Saca una foto y traduce el contenido
+      a(href='/foto') Ver más
 
+    .card
+      h2 blog
+      p Descubre los secretos de NYC para tu proximo viaje.
+      a(href='/guia') Ver más
 
- 
-
-    section#seccion2(onclick="toggleSection('seccion2')") 
-      h2.section-header Sección 2
-      div#contenido-seccion2(style="display: none;")
 
   script(src="/js/main.js")

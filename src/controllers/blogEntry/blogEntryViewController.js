@@ -32,8 +32,11 @@ const updateBlogEntryForm = async (req, res) => {
 
 const updateBlogEntry = async (req, res) => {
     const id = req.params.id;
-    const { titulo, contenido, categoria, categoriaMes, autor, foto } = req.body;
-
+    console.log(req.params)
+    const { titulo, contenido, categoria, categoriaMes, autor } = req.body;
+    const foto = `/images/blog/${req.file.filename}`;
+  
+    
     try {
         const [error, entry] = await blogEntryController.updateBlogEntry(id, titulo, contenido, categoria, categoriaMes, autor, foto);
 

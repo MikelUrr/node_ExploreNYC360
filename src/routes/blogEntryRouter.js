@@ -16,7 +16,7 @@ router.get("/:id/delete", isAuthenticated,isEditororAdmin,   (req, res) => {
     blogEntryViewController.removeBlogEntry(req, res);
 });
 
-router.post("/:id", isAuthenticated, isEditororAdmin,   (req, res) => {
+router.post("/:id", isAuthenticated, isEditororAdmin, upload.single('fotoSubir'),  (req, res) => {
     blogEntryViewController.updateBlogEntry(req, res);
 });
 

@@ -62,7 +62,10 @@ const updateBlogEntry = async (id, titulo, contenido, categoria, categoriaMes, a
         entry.categoria = categoria;
         entry.categoriaMes = categoriaMes;
         entry.autor = autor;
-        entry.foto = foto;
+        if (foto!=undefined){
+            entry.foto = foto;
+        }
+        
 
         await entry.save();
 

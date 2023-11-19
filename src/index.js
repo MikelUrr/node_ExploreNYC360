@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import session from "express-session";
 import cors from 'cors';
 
+
 const PORT = 3009;
 
 // Importa el módulo de enrutador definido en "router.js".
@@ -21,7 +22,7 @@ app.use(session({
     saveUninitialized:false,
     cookie: {
         secure:false,
-        maxAge: 1000 * 60 * 20
+        maxAge: 1000 * 60 * 60
     }
 }))
 
@@ -36,6 +37,7 @@ app.set('view engine', 'pug');
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+
 
 app.get("/",(req,res)=>{
     res.render("./auth/login");

@@ -1,6 +1,23 @@
 extends ../layout
 
 block content
+  header.main-header
+    div.project-info
+      h1.main-title ExploreNYC360 
+      hr.divider
+
+    nav#nav.main-nav
+      div.nav-links
+        a.link-item(href="/airport") Vuelos
+        a.link-item(href="/foto") Fotos
+        a.link-item(href="/guia") blog
+        a.link-item(href="/myprofile") Mi perfil
+        a.link-item(href="/logout") Logout 
+    button#button-menu.button-menu
+      span
+      span
+      span
+
   h1(class="profile-title") Mi Perfil
 
   .profile-info

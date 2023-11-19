@@ -31,11 +31,11 @@ const resultadosArray = getApi();
 document.addEventListener('DOMContentLoaded', async ()=> {
     const localizacionPrefInput = document.getElementById('fly_from');
     localizacionPrefInput.addEventListener('input', async ()=>  {
-        console.log("Input event triggered",await resultadosArray);
+        
         const inputValue = event.target.value.toLowerCase(); 
-        console.log("DENTROOOOOO resultados array", await resultadosArray);
+        
         const suggestions = await filterSuggestions( await resultadosArray, inputValue);
-        console.log("Holiiiiii", suggestions);
+        
         displaySuggestions(suggestions);
     });
    
