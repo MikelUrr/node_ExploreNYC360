@@ -4,20 +4,19 @@ import UserModel from "../../models/userModel.js"
 
 // Controlador para el inicio de sesión.
 const login = async (req, res) => {
-    console.log("REQ BODY SOLO BODY", JSON.stringify(req.body));
+    
     
     const { email, password } = req.body;
 
     try {
         const user = await UserModel.findOne({ email: email });
-        console.log("REQ session", JSON.stringify(req.session.rol), user.rol);
-        console.log(user);
+        
         
         if (!user) {
             throw new Error("Credenciales incorrectas paso 1");
         }
 
-        console.log();
+       
 
         if (user.cuentaDesactivada) {
             // Si la cuenta está desactivada y la solicitud de reactivación está pendiente, muestra un mensaje al usuario.
@@ -41,13 +40,13 @@ const login = async (req, res) => {
             throw new Error("Contraseña incorrecta");
         }
 
-        console.log("todavía no redirigiendo", JSON.stringify(req.session.rol), user.rol);
+        
         
         if (req.session.rol === "admin" || req.session.rol === "editor") {
-            console.log("Estoy redirigiendo", JSON.stringify(req.session.rol), user.rol);
+            ;
             return res.redirect(`/gestion`);
         } else if (req.session.rol === "usuario") {
-            console.log("Estoy redirigiendo usuario", JSON.stringify(req.session.rol), user.rol);
+            
             return res.redirect(`/home`);
         }
     } catch (e) {

@@ -3,10 +3,10 @@ import TequilaApi from "./TequilaApi.js"
 
 const getViewSearch = async (req, res) => {
     const id = req.session.user;
-    console.log("IDIIIIIIIIIIIIIIIIIII",id)
+    
     const errorMessage = req.query.error;
     const [error, search] = await airportController.getSearch(id);
-    console.log("resultado de la busqueda",search)
+    
     res.render("airport/list", { error: error || errorMessage, search, session: req.session });
 };
 
