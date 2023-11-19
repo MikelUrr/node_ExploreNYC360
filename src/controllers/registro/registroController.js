@@ -1,6 +1,6 @@
 import UserModel from "../../models/userModel.js"
 
-const createUser = async (nombre, email, fechaNacimiento, password, estacionPref, clasePref, numViajeros, longitudPref, selectionPref, localizacionPref, cuentaDesactivada,rol) => {
+const createUser = async (nombre, email, fechaNacimiento, password, estacionPref,categoria) => {
     try {
         const newUser = new UserModel({
             nombre: nombre,
@@ -8,13 +8,9 @@ const createUser = async (nombre, email, fechaNacimiento, password, estacionPref
             fechaNacimiento: fechaNacimiento,
             password: password,
             estacionPref: estacionPref,
-            clasePref: clasePref,
-            numViajeros: numViajeros,
-            longitudPref: longitudPref,
-            selectionPref: selectionPref,
-            localizacionPref: localizacionPref,
-            cuentaDesactivada: cuentaDesactivada,
-            rol:rol,
+            categoria:categoria,
+            
+ 
         });
 
         const savedUser = await newUser.save();
@@ -25,14 +21,57 @@ const createUser = async (nombre, email, fechaNacimiento, password, estacionPref
     }
 };
 
+const findUserByEmail = async (email) => {
+    try {
+        const user = await UserModel.findOne({ email: email });
+        
+        return [null, user];
+    } catch (error) {
+        console.error(error);
+        return [error.message, null];
+    }
+};
 
+const updateUser = async (userId, nombre, email, fechaNacimiento, password, estacionPref, categoria) => {
+    try {
+        const user = await UserModel.findById(userId);
+
+        if (!user) {
+            const error = "No se ha encontrado un usuario con el ID proporcionado.";
+            return [error, null];
+        }
+
+        
+        // Actualizar los valores del usuario
+        user.nombre = nombre;
+        user.email = email;
+        user.fechaNacimiento = fechaNacimiento;
+        user.password = password; 
+        user.estacionPref = estacionPref;
+        user.categoria=categoria,
+        user.solicitudReactivacion="true";
+        
+
+        // Guardar los cambios
+        await user.save();
+
+        return [null, user];
+    } catch (error) {
+        console.error(error);
+        return [error.message, null];
+    }
+};
 
 export default {
   
-    createUser
+    createUser,
+    findUserByEmail,
+    updateUser
 };
 
 export  {
  
-    createUser
+    createUser,
+    findUserByEmail,
+    updateUser
 }
