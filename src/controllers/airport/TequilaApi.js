@@ -1,29 +1,10 @@
 import axios from 'axios';
-/* const params = {
-    fly_from: 'BIO',
-    fly_to: 'NYC',
-    date_from: '01/12/2023',
-    date_to: '01/04/2024',
-    return_from: '06/04/2024',
-    return_to: '06/04/2024',
-    ret_from_diff_city: true,
-    ret_to_diff_city: true,
-    one_for_city: 0,
-    one_per_date: 0,
-    adults: 2,
-    selected_cabins: 'M',
-    only_working_days: false,
-    only_weekends: false,
-    partner_market: 'us',
-    max_stopovers: 2,
-    max_sector_stopovers: 2,
-    vehicle_type: 'aircraft',
-    limit: 1,
-};
- */
+import dotenv from "dotenv";
+
 async function searchFlights(params) {
     const apiUrl = 'https://api.tequila.kiwi.com/v2/search';
-    const apiKey = '4_dawfiQpvJil0yv2BFukhAfqbbkoimb';  // Reemplaza con tu clave de API
+    const apiKey =  process.env.TEQUILA_APIKEY;
+    ;  
 
     try {
         const response = await axios.get(apiUrl, {

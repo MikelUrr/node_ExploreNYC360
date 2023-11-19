@@ -39,14 +39,13 @@ const createForm = async (req, res) => {
         const error = req.query.error;
         const busqueda = {
             fly_from: "",
-            fly_to: "",
+            
             date_from: "",
-            date_to: "",
+            
             return_from: "",
-            return_to: "",
+            
             adults: "",
-            children: "",
-            infants: "",
+          
         };
 
 
@@ -60,6 +59,7 @@ const createForm = async (req, res) => {
 const create = async (req, res) => {
     try {
         const { fly_from, date_from, return_from, adults } = req.body;
+       
         const userId = req.session.user;
 
 

@@ -19,7 +19,7 @@ block content
       span 
   main
     h1.titleblog  Todas las Entradas del Blog
-
+    
     each entries in entry
       .blog-entry
         h2.blog-title= entries.titulo
@@ -33,3 +33,4 @@ block content
         p.blog-categories Categorías: #{entries.categoria.join(', ')}
         p.blog-month Categoría del Mes: #{entries.categoriaMes}
     a(href='/home', class="new-search-button") Volver atras 
+  script(src="/js/main.js")
