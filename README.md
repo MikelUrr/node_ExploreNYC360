@@ -55,16 +55,16 @@ ExploreNYC360 includes a powerful internal management system. Access it Access i
 Additional Commands:
 To build the application:
 
-    ```bash
+    
     npm run build
-    ```
+    
 This command compiles the application for production.
 
 To run tests:
 
-    ```bash
+    
     npm test
-    ```
+    
 Execute this command to run the automated tests.
 
 Customize your ExploreNYC360 experience and enjoy a seamless journey through the streets of NYC!
