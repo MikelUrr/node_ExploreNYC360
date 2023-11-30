@@ -49,7 +49,7 @@ ExploreNYC360 offers a variety of features to make your NYC travel seamless. Cus
 This command launches the ExploreNYC360 application, making it accessible at http://localhost:your-port. Remember to replace "your-port" with the actual port number on which your application will be running.
 
 Internal Management System:
-ExploreNYC360 includes a powerful internal management system. Access it Access it by logging as a admin profile.
+ExploreNYC360 includes a powerful internal management system. Access it by logging as a admin profile.
 
 
 Additional Commands:
